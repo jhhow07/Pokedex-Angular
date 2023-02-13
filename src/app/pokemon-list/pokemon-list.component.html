@@ -1,13 +1,21 @@
 <div class="main_container">
   <div class="content">
     <div>
-      <input type="text" class="filterInput" #input (keydown)="filter(input.value)" placeholder="Pesquise por pokémons...">
+      <!-- <input type="text" class="filterInput" #input (keydown)="filter(input.value)"
+        placeholder="Pesquise por pokémons..."> -->
     </div>
     <div class="pokemon_main_box">
       <div (click)="goToDetail(pokemon.name)" *ngFor="let pokemon of pokemonList" class="pokemon_boxes">
         <img src="{{getPokemonImg(pokemon.url)}}">
         {{ pokemon.name }}
+        <div class="typeBox">
+          <span [style.background]="changeTypeColor(type)" id="pokeType" class="pokeType" *ngFor="let type of pokemon.type">
+            {{ type }}
+          </span>
+        </div>
       </div>
+    </div>
+    <div>
     </div>
   </div>
 </div>

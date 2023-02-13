@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column0;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 15px;
     background-color: white;
@@ -18,7 +18,25 @@
     border-radius: 15px;
 }
 
-.pokemon_box {
+.filterInput {
+    background-color: #dddddd;
+    border: 1px solid rgb(0 0 0 / 7%);
+    padding: 3.5%;
+    outline: none;
+    font-size: 19px;
+    border-radius: 8px;
+}
+
+.pokemon_main_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+}
+
+.pokemon_boxes {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,7 +44,7 @@
     background-color: rgb(51, 95, 255);
     color: white;
     font-weight: 500;
-    font-size: 21px;
+    font-size: 18px;
     font-family: sans-serif;
     text-transform: capitalize;
     width: 150px;
@@ -36,21 +54,6 @@
     cursor: pointer;
 }
 
-.separatePokemon {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    width: 100%;
-}
-
-.backBtn {
-    background: #ff4040;
-    color: white;
-    font-size: 15px;
-    font-family: sans-serif;
-    border-radius: 18px;
-    padding: 0.8%;
-    cursor: pointer;
+.pokemon_box:hover {
+    box-shadow: -1px 2px 3px 1px #00000070;
 }

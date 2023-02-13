@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { PokemonService } from './services/pokemon.service';
+import { Router, RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @Component({
   selector: 'app-root',
@@ -8,35 +10,9 @@ import { PokemonService } from './services/pokemon.service';
 })
 
 export class AppComponent {
-  pokemonList: any;
-
-  constructor(private pokemonService: PokemonService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.getPokemonList();
   }
-
-  // getPokemonChain(pokemonName: string) {
-  //   this.pokemonService.getPokemonChain(pokemonName).
-  //   subscribe(data => {
-  //     console.log(data);
-  //   });
-  // }
-
-  getPokemonList():void {
-    this.pokemonService.getPokemonsList().
-    subscribe(data=> {
-      this.pokemonList = data.results;
-    });
-  }
-
-  getPokemonName(name: string) {
-    return name;
-    // this.pokemonService.getPokemonChain(name).
-    // subscribe(data => {
-    //   console.log(data);
-    // });
-  }
-
 }

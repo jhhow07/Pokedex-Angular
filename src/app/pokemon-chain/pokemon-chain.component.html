@@ -1,1 +1,19 @@
-<p>pokemon-chain works!</p>
+<div class="main_container">
+    <div class="content" *ngFor="let pokemon of activePokemon">
+        <div class="pokemon_box">
+            <img src="{{ getPokemonImg(firstPokemonUrl) }}">
+            {{ firstPokemonName }}
+        </div>
+        <div class="separatePokemon" *ngFor="let evolution of evolutionChain.evolves_to">
+            <div class="pokemon_box">
+                <img src="{{getPokemonImg(evolution.species.url)}}">
+                {{ evolution.species.name }}
+            </div>
+            <div class="pokemon_box" *ngFor="let evo of evolution.evolves_to">
+                <img src="{{getPokemonImg(evo.species.url)}}">
+                {{ evo.species.name }}
+            </div>
+        </div>
+        <h2 class="backBtn" (click)="toHome()">VOLTAR</h2>
+    </div>
+</div>

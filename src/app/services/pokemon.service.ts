@@ -7,7 +7,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class PokemonService {
   speciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
   pokemonListUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150&offset=0";
-  
+
   constructor(private httpClient: HttpClient) { }
 
   getPokemonSpecie(pokemonName: string) {
@@ -22,7 +22,6 @@ export class PokemonService {
     return this.httpClient.get<any>(specieUrl);
   }
 
-  
   getPokemon(url: string) {
     return this.httpClient.get<any>(url);
   }

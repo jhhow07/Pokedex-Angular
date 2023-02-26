@@ -22,26 +22,10 @@ export class PokemonListComponent implements OnInit {
   ngOnInit() {
     this.getPokemonList();
   }
-
-  // getPokemonList(): void {
-  //   this.pokemonService.getPokemonsList().
-  //     subscribe(data => {
-  //       const urls: any = [];
-  //       this.pokemonList = data.results;
-  //       this.filteredList = data.results;
-  //       this.pokemonList.map((pokemon: any) => { 
-  //         console.log(pokemon.url);
-  //         this.pokemonService.getPokemon(pokemon.url).
-  //         subscribe(x => {
-  //           this.pokemonsTypes = x.types.map((typeData: any) => typeData.type.name);
-  //         });
-  //       });
-  //     });
-  // }
+  
   getPokemonList(): void {
-    this.pokemonService.getPokemonsList().
-      subscribe(data => {
-        this.filteredList = data.results;
+    this.pokemonService.getPokemonsList()
+      .subscribe(data => {
         this.pokemonList = data.results.map((pokemonData: any) => {
           return {
             name: pokemonData.name,
@@ -51,12 +35,13 @@ export class PokemonListComponent implements OnInit {
         });
         this.pokemonList.forEach((pokemon: any) => {
           this.pokemonService.getPokemon(pokemon.url)
-          .subscribe(pokemonData => {
-            pokemonData.types.forEach((typeData: any) => {
-              pokemon.type.push(typeData.type.name);
+            .subscribe(pokemonData => {
+              pokemonData.types.forEach((typeData: any) => {
+                pokemon.type.push(typeData.type.name);
+              });
             });
-          });
         });
+        this.filteredList = this.pokemonList;
       });
   }
 
@@ -70,9 +55,9 @@ export class PokemonListComponent implements OnInit {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${finalValue}.png`
   }
 
-  // filter(filterValue: string) {
-  //     this.pokemonList = this.filteredList.filter((x: any) => x.name.includes(filterValue.toLowerCase()))
-  // }
+  filter(filterValue: string) {
+    this.pokemonList = this.filteredList.filter((x: any) => x.name.includes(filterValue.toLowerCase()))
+  }
 
   changeTypeColor(type: string) {
     let color: string = '';

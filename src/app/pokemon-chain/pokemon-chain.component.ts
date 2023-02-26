@@ -25,10 +25,6 @@ export class PokemonChainComponent {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.pokemonName = params['name'];
-      // this.http.get<any>(`https://pokeapi.co/api/v2/pokemon/${this.pokemonName}`).
-      //   subscribe(data => {
-      //     this.activePokemon = Array.of(data);
-      //   });
     });
 
     this.pokemonService.getPokemonSpecie(this.pokemonName).
@@ -37,7 +33,6 @@ export class PokemonChainComponent {
           subscribe(res => {
             this.firstPokemonName = res.chain.species.name;
             this.firstPokemonUrl = res.chain.species.url;
-            // this.firstPokemon = res.name
             this.evolutionChain = res.chain;
           })
       });

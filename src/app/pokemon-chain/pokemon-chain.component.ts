@@ -34,7 +34,7 @@ export class PokemonChainComponent {
             this.firstPokemonName = res.chain.species.name;
             this.firstPokemonUrl = res.chain.species.url;
             this.evolutionChain = res.chain;
-          })
+          });
       });
   }
 
